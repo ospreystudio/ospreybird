@@ -1,84 +1,125 @@
 <template>
+     <header class="header">
+            <router-link :to="{ name: 'Main' }"><img src="@/img/logo.png" alt="osprey logo" class="logo"></router-link>
 
-
-<div class="container">
-  <header class="header">
-   <router-link :to="{ name: 'Main' }"><img src="@/assets/logo.png" alt="osprey logo" class="logo"></router-link>
-
-    <nav class=user-nav>
-      <div class="user-nav__icon-box"> 
-
-        <svg class="user-nav__icon">
-                        <use xlink:href="@/assets/spritesocial.svg#icon-telegram"></use>
+            <!-- <form action="#" class="search">
+                <input type="text" class="search__input" placeholder="Search hotels">
+                <button class="search__button">
+                    <svg class="search__icon">
+                        <use xlink:href="@/img/sprite.svg#icon-magnifying-glass"></use>
                     </svg>
-              </div>
+                </button>
+            </form> -->
 
-      <div class="user-nav__icon-box">
+ 
+       
+        
+            <!-- <nav class="user-flag">
+
+                         
+               <div class="user-nav__icon-box" v-bind:class="{active: isActive}" @click="activate('russia')>
+                          
+                    <a href="#" class="user-nav__icon" />
+                <img class="flag" src="@/img/Russia.png" alt="Work King" />
+                        </a>
+                </div>
+           
+                
+
+                      <div class="user-nav__icon-box " v-on:click="isActive = Active">
+                            
+                          <a href="#" class="user-nav__icon" />
+                 <img class="flag"  src="@/img/United-Kingdom.png" alt="Work King" />
+                        </a>
+                         </div>
+                         </nav>
+              -->
+
+            <ul>
+                <li> <img src="@/img/Russia.png"> </li>
+
+               
+            </ul>
+
+            <nav class="user-nav">
+ 
+                 
+                      <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
-                        <use xlink:href="@/assets/spritesocial.svg#icon-vk"></use>
+                        <use xlink:href="@/img/spritesocial.svg#icon-telegram"></use>
                     </svg>
               </div>
-
-      <div class="user-nav__icon-box">
+                
+                   <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
-                        <use xlink:href="@/assets/spritesocial.svg#icon-instagram"></use>
+                        <use xlink:href="@/img/spritesocial.svg#icon-vk"></use>
                     </svg>
               </div>
-      <div class="user-nav__icon-box">
+              <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
-                        <use xlink:href="@/assets/spritesocial.svg#icon-facebook"></use>
+                        <use xlink:href="@/img/spritesocial.svg#icon-instagram"></use>
                     </svg>
               </div>
-      <div class="user-nav__icon-box">
+                <div class="user-nav__icon-box">
+                       <svg class="user-nav__icon">
+                        <use xlink:href="@/img/spritesocial.svg#icon-facebook"></use>
+                    </svg>
+              </div>
+                <div class="user-nav__icon-box">
                     <svg class="user-nav__icon">
-                        <use xlink:href="@/assets/sprite.svg#icon-chat"></use>
+                        <use xlink:href="@/img/sprite.svg#icon-chat"></use>
                     </svg>
                 </div>
-
-      </nav>
-  </header>
-
-  <div class="content">
-      <nav class="sidebar">
-    Navigation
-    </nav>
-
-  <main class="osrey-view"> 
-    Osprey View
-  </main>
-  </div>
-</div>
+      
+                     </nav>
+        </header>
 </template>
 
+
 <script>
-// @ is an alias to /src
 
 
 export default {
-  name: 'Header',
-  components: {
+
+    
+    data() {
+        return {    
+        }
+    }, 
+    methods: {
   
-  }
+    },
+    created() {
+ 
+    }
+
+
+
 }
 </script>
 
-<style lang="scss" >
 
-.container {
-  max-width: 120rem;
-  margin: 8rem auto;
-  background-color: var(--color-grey-light-2);
-  box-shadow: var(--shadow-dark);
-  min-height: 50rem;
+<style lang="scss" scoped>
+
+
+
+ul {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    display: flex;
 }
 
+li {
+    margin: 1 1rem;
 
-.content {
-    display: flex;
+    padding: 0.4rem;
 
-    @media only screen and (max-width: $bp-medium) {
-        flex-direction: column;
-    }
+
+}
+
+.active {
+    background-color: var(--color-primary-light);
 }
 
 .header {
@@ -98,38 +139,180 @@ export default {
     }
 }
 
-.sidebar {
+////////////////////////////////////////
+// SEARCH
+// .search {
+//     flex: 0 0 10%;
 
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
 
-}
+//     @media only screen and (max-width: $bp-smallest) {
+//         order: 1;
+//         flex: 0 0 100%;
+//         background-color: var(--color-grey-light-2);
+//     }
 
-.osrey-view
- {
+//     &__input {
+//         font-family: inherit;
+//         font-size: inherit;
+//         color: inherit;
+//         background-color: var(--color-grey-light-2);
+//         border: none;
+//         padding: .7rem 2rem;
+//         border-radius: 100px;
+//         width: 90%;
+//         transition: all .2s;
+//         margin-right: -3.25rem;
 
+//         &:focus {
+//             outline: none;
+//             width: 100%;
+//             background-color: var(--color-grey-light-3);
+//         }
 
- }
+//         &::-webkit-input-placeholder {
+//             font-weight: 100;
+//             color: var(--color-grey-light-4);
+//         }
+//     }
 
+//     &__input:focus + &__button {
+//         background-color: var(--color-grey-light-3);
+//     }
 
+//     &__button {
+//         border: none;
+//         background-color: var(--color-grey-light-2);
 
+//         &:focus {
+//             outline: none;
+//         }
 
-// LOGO
-.logo {
-  height: 4.25rem;
-}
+//         &:active {
+//             transform: translateY(2px);
+//         }
+//     }
 
+//     &__icon {
+//         height: 2rem;
+//         width: 2rem;
+//         fill: var(--color-grey-dark-3);
+//     }
+// }
 
+////////////////////////////////////////
+// USER NAVIGATION
 
-//  USER NAVIGATION
 
 .user-nav {
-  &__icon-box {
+    align-self: stretch;
+    
+    display: flex;
+    align-items: center;
 
-  }
+    & > * {
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
-  &__icon {
+    & > *:hover {
+        background-color: var(--color-grey-light-3);
+    }
 
-  }
+    &__icon-box {
+        position: relative;
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2);
+    }
+
+    // &__notification {
+    //     font-size: .8rem;
+    //     height: 1.75rem;
+    //     width: 1.75rem;
+    //     border-radius: 50%;
+    //     background-color: var(--color-primary);
+    //     color: #fff;
+    //     position: absolute;
+    //     top: 1.5rem;
+    //     right: 1.1rem;
+
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+
+    // &__user-photo {
+    //     height: 3.75rem;
+    //     border-radius: 50%;
+    //     margin-right: 1rem;
+    // }
 
 }
+.logo {
+    height: 4.25rem;
+    margin-left: 3.5rem;
+}
+
+//////////////////////////////////////////////
+/////////////////FLAGS
+
+
+.flag {
+
+    height: 30px;
+    weight: 40px;
+    flex: 0 0 18%;
+    margin-right:20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.user-flag {
+    align-self: stretch;
+    
+    display: flex;
+    align-items: center;
+
+       & > * {
+     
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    //   & > *:hover {
+    //     background-color: var(--color-grey-light-3);
+    // }
+
+      & > *:hover {
+        background-color: var(--color-primary-light);
+    }
+
+    &__icon-box {
+        position: relative;
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2);
+    }
+   
+
+}
+  
 
 </style>
