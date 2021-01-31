@@ -2,54 +2,21 @@
      <header class="header">
             <router-link :to="{ name: 'Main' }"><img src="@/img/logo.png" alt="osprey logo" class="logo"></router-link>
 
-            <!-- <form action="#" class="search">
-                <input type="text" class="search__input" placeholder="Search hotels">
-                <button class="search__button">
-                    <svg class="search__icon">
-                        <use xlink:href="@/img/sprite.svg#icon-magnifying-glass"></use>
-                    </svg>
-                </button>
-            </form> -->
-
- 
-       
-        
-            <!-- <nav class="user-flag">
-
-                         
-               <div class="user-nav__icon-box" v-bind:class="{active: isActive}" @click="activate('russia')>
-                          
-                    <a href="#" class="user-nav__icon" />
-                <img class="flag" src="@/img/Russia.png" alt="Work King" />
-                        </a>
-                </div>
-           
-                
-
-                      <div class="user-nav__icon-box " v-on:click="isActive = Active">
-                            
-                          <a href="#" class="user-nav__icon" />
-                 <img class="flag"  src="@/img/United-Kingdom.png" alt="Work King" />
-                        </a>
-                         </div>
-                         </nav>
-              -->
 
             <ul>
                 <li> <img src="@/img/Russia.png"> </li>
 
-               
             </ul>
 
             <nav class="user-nav">
  
                  
+   
                       <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
                         <use xlink:href="@/img/spritesocial.svg#icon-telegram"></use>
                     </svg>
               </div>
-                
                    <div class="user-nav__icon-box">
                        <svg class="user-nav__icon">
                         <use xlink:href="@/img/spritesocial.svg#icon-vk"></use>
@@ -61,45 +28,85 @@
                     </svg>
               </div>
                 <div class="user-nav__icon-box">
-                       <svg class="user-nav__icon">
+                    <svg class="user-nav__icon">
                         <use xlink:href="@/img/spritesocial.svg#icon-facebook"></use>
                     </svg>
               </div>
-                <div class="user-nav__icon-box">
-                    <svg class="user-nav__icon">
-                        <use xlink:href="@/img/sprite.svg#icon-chat"></use>
+
+
+                <div class="user-nav__icon-box ">
+                    <svg class="user-nav__icon" @click="showPopupInfo">
+                        <use xlink:href="@/img/sprite.svg#icon-chat" class="blink"></use>
                     </svg>
+
+                        <Callback 
+                        v-if="isInfoPopupVisible"
+                        @closePopup="closeInfoPopup"
+              
+                     /> 
+                  
                 </div>
-      
-                     </nav>
+            </nav>
+                    
+         
         </header>
 </template>
 
 
 <script>
 
-
+import Callback from '../components/UI/Callback.vue'
 export default {
-
+    components: {
+        Callback
+    },
     
     data() {
-        return {    
+        return {
+              isInfoPopupVisible: false,
+         
+             
         }
     }, 
     methods: {
-  
+        activate(option) {
+            this.activeOption = option;
+        },
+
+        showPopupInfo() {
+            this.isInfoPopupVisible = true;
+        },
+
+        closeInfoPopup() {
+            this.isInfoPopupVisible = false;
+        },
     },
+    
     created() {
- 
-    }
 
-
-
+    }, 
 }
+
+
+
+
+
 </script>
 
 
 <style lang="scss" scoped>
+
+.blink {
+animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  animation-duration: 2s;
+  -webkit-animation-name: blinker;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1.5s;
+}
+ 
 
 
 
@@ -138,6 +145,9 @@ li {
         height: 11rem;
     }
 }
+
+
+
 
 ////////////////////////////////////////
 // SEARCH
@@ -281,7 +291,6 @@ li {
 
 .user-flag {
     align-self: stretch;
-    
     display: flex;
     align-items: center;
 
@@ -310,7 +319,8 @@ li {
         width: 2.25rem;
         fill: var(--color-grey-dark-2);
     }
-   
+
+    
 
 }
   

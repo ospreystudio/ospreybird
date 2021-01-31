@@ -23,7 +23,8 @@ export default {
     Header,
     Navbar,
     Home
-    
+
+
   },
     data() {
         return {

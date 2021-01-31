@@ -22,8 +22,8 @@
                         </a>
                     </li>
                     </router-link>
-                 <router-link :to="{ name: 'Web' }"> 
-                    <li class="side-nav__item" @click="activate('web')" :class="{active: activeOption === 'web' }">
+                 <router-link :to="{ name: 'UxUi' }"> 
+                    <li class="side-nav__item" @click="activate('UxUi')" :class="{active: activeOption === 'UxUi' }">
                         <a href="#" class="side-nav__link">
                             <span><svg class="side-nav__icon">
                                 <use xlink:href="@/img/sprite.svg#icon-leaf"></use>
@@ -42,8 +42,8 @@
                         </a>
                     </li>
                     </router-link>
-                    <router-link :to="{ name: 'Graphic' }">
-                    <li class="side-nav__item" @click="activate('grafic')" :class="{active: activeOption === 'grafic' }">
+                    <router-link :to="{ name: 'Design' }">
+                    <li class="side-nav__item" @click="activate('design')" :class="{active: activeOption === 'design' }">
                         <a href="#" class="side-nav__link">
                             <svg class="side-nav__icon">
                                 <use xlink:href="@/img/sprite.svg#icon-round-brush"></use>
@@ -63,16 +63,7 @@
                         </a>
                     </li>
                     </router-link>
-                          <router-link :to="{ name: 'SignUp' }">
-                    <li class="side-nav__item" @click="activate('signup')" :class="{active: activeOption === 'signup' }">
-                        <a href="#" class="side-nav__link">
-                            <svg class="side-nav__icon">
-                                <use xlink:href="@/img/sprite-2.svg#icon-users"></use>
-                            </svg>
-                         <span>  Comments </span>
-                        </a>
-                    </li>
-                    </router-link>
+                
                    <router-link :to="{ name: 'Contacts' }">
                     <li class="side-nav__item" @click="activate('contacts')" :class="{active: activeOption === 'contacts' }">
                         <a href="#" class="side-nav__link">
@@ -88,27 +79,24 @@
         
 
                 <div class="legal">
-                    &copy; 2020 All rights reserved.
+                    &copy; 2021 All rights reserved.
                 </div>
             </nav>
-       
-
 </template>
 
 <script>
-
 export default {
 data() {
     return {
-        
+          activeOption: null
         }
- 
-
-        
-        
+    },
+  methods: {
+        activate(option) {
+            this.activeOption = option;
+        }      
     }   
 }
-
 </script>
 
 
